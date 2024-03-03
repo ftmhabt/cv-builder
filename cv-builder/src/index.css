@@ -1,12 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap');
 
 :root {
+  --border:2px solid #D4D4D4;
   font-family: 'Ubuntu', sans-serif;
 }
 
 #root{
   display: grid;
   grid-template-columns: repeat(2,1fr);
+  grid-template-rows: 1fr 10fr;
+  height: 100vh;
 }
 
 *{
