@@ -1,12 +1,13 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import Header from './components/header'
+import Body from './components/body'
 import './index.css'
-import Forms from './components/forms'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <Header/>
-    <Forms/>
+    <Body/>
+    
   </React.StrictMode>,
 )

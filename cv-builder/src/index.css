@@ -21,3 +21,20 @@
 a {
   text-decoration: none;
 }
+
+form{
+  display: flex;
+  flex-direction: column;
+  padding: 3rem 2rem;
+}
+
+input,
+textarea{
+  padding: .2rem;
+  margin-bottom: .75rem;
+}
+
+label{
+  font-weight: bold;
+  font-size: .75rem;
+}

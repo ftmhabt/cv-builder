@@ -23,3 +23,7 @@
     margin-left: auto;
     height: 1rem;
 }
+
+.form{  
+  border-right: var(--border);
+}
