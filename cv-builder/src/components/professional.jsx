@@ -19,11 +19,11 @@ export default function Professional({ data, onChange }) {
       <textarea
         name="mainResponsibilities"
         id="mainResponsibilities"
-        onChange={(e) => onChange("studyDate", e.target.value)}
+        onChange={(e) => onChange("mainResponsibilities", e.target.value)}
         cols="30"
         rows="10"
       >
-        {data.studyDate}
+        {data.mainResponsibilities}
       </textarea>
       <label htmlFor="from">From:</label>
       <input

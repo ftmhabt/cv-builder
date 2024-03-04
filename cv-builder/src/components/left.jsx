@@ -1,4 +1,5 @@
 import { useState } from "react";
+import "./../styles/left.css";
 import rightIcon from "./../assets/right.svg";
 import General from "./general";
 import Educational from "./educational";

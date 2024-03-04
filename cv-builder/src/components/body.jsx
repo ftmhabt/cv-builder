@@ -1,5 +1,4 @@
 import { useState } from "react";
-import "./../styles/body.css";
 import Left from "./left";
 import Right from "./right";
 
@@ -25,7 +24,7 @@ export default function Body() {
   return (
     <>
       <Left data={data} onChange={handleChange} />
-      <Right />
+      <Right data={data} />
     </>
   );
 }
