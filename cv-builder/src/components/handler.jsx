@@ -6,7 +6,6 @@ export default function Handler({children}){
   const addChild = () => {
     setChildrens(prevChildren => [...prevChildren, children]);
   };
-  
     return(
         <div>
             {childrens}

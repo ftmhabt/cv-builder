@@ -1,5 +1,15 @@
+import { useState } from "react";
+
 export default function Professional({ data, onChange }) {
+  const[toRender,setToRender]=useState(true);
+
+  function removeSelf(e){
+    e.preventDefault(); 
+    setToRender(!toRender);
+  }
+  
   return (
+    toRender?
     <form>
       <label htmlFor="companyName">Company Name</label>
       <input
@@ -41,6 +51,7 @@ export default function Professional({ data, onChange }) {
         value={data.until}
         onChange={(e) => onChange("until", e.target.value)}
       />
-    </form>
+      <button onClick={removeSelf}>remove</button>
+    </form>:<></>
   );
 }

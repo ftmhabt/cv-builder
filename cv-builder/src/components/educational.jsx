@@ -1,5 +1,15 @@
+import { useState } from "react";
+
 export default function Educational({ data, onChange }) {
+  const[toRender,setToRender]=useState(true);
+  
+  function removeSelf(e){
+    e.preventDefault(); 
+    setToRender(!toRender);
+  }
+
   return (
+    toRender?
     <form>
       <label htmlFor="schoolName">School Name</label>
       <input
@@ -23,6 +33,7 @@ export default function Educational({ data, onChange }) {
         value={data.studyDate}
         onChange={(e) => onChange("studyDate", e.target.value)}
       />
-    </form>
+      <button onClick={removeSelf}>remove</button>
+    </form>:<></>
   );
 }
