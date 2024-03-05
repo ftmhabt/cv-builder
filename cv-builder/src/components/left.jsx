@@ -4,6 +4,7 @@ import rightIcon from "./../assets/right.svg";
 import General from "./general";
 import Educational from "./educational";
 import Professional from "./professional";
+import Handler from "./handler";
 
 
 export default function Left({ data, onChange }) {
@@ -26,8 +27,8 @@ export default function Left({ data, onChange }) {
       </div>
       <div className="form">
       {selected === 0 ? <General data={data} onChange={onChange} /> : ""}{" "}
-      {selected === 1 ? <Educational data={data} onChange={onChange}/> : ""}{" "}
-      {selected === 2 ? <Professional data={data} onChange={onChange}/> : ""}{" "}
+      {selected === 1 ? <Handler> <Educational data={data} onChange={onChange}/> </Handler> : ""}{" "}
+      {selected === 2 ? <Handler> <Professional data={data} onChange={onChange}/></Handler> : ""}{" "}
       </div>
     </div>
   );

@@ -34,6 +34,7 @@ export default function Right({ data }) {
           </div>
         </div>
       </div>
+      <div>design by <a href="https://dribbble.com/shots/22516530-Resume-Builder-Web-Application"> Vishnu Ramath on dribbble</a></div>
     </div>
   );
 }

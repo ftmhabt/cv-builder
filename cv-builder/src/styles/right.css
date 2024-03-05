@@ -1,5 +1,6 @@
 .cv{
     background-color: var(--gray);
+    overflow-y: scroll;
 }
 
 .paper{

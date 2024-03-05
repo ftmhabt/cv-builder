@@ -7,6 +7,8 @@ export default function Body() {
     name: "",
     email: "",
     number: "",
+    educations:[],
+    expriances:[],
     schoolName: "",
     studyTitle: "",
     studyDate: "",
