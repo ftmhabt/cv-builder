@@ -1,15 +1,25 @@
-import { useState } from "react";
+import { cloneElement, useState } from "react";
+import { nanoid } from "nanoid";
 
-export default function Handler({children}){
-    const [childrens, setChildrens] = useState([]);
+export default function Handler({ children, count, onAdd }) {
+  const [childrens, setChildrens] = useState(
+    Array.from({ length: count }, () =>
+      cloneElement(children, { key: nanoid() })
+    )
+  );
 
   const addChild = () => {
-    setChildrens(prevChildren => [...prevChildren, children]);
+    onAdd();
+    setChildrens((prevChildren) => [
+      ...prevChildren,
+      cloneElement(children, { key: nanoid() })
+    ]);
   };
-    return(
-        <div>
-            {childrens}
-            <button onClick={addChild}>add</button>
-        </div>
-    )
+
+  return (
+    <div>
+      {childrens}
+      <button onClick={addChild}>add</button>
+    </div>
+  );
 }
