@@ -6,7 +6,7 @@ import Educational from "./educational";
 import Professional from "./professional";
 
 
-export default function Left({ data, onChange }) {
+export default function Left() {
   const [selected, setSelected] = useState(0);
   return (
     <div className="forms">
@@ -25,9 +25,9 @@ export default function Left({ data, onChange }) {
         </div>
       </div>
       <div className="form">
-      {selected === 0 ? <General data={data} onChange={onChange} /> : ""}{" "}
-      {selected === 1 ? <Educational data={data} onChange={onChange}/> : ""}{" "}
-      {selected === 2 ? <Professional data={data} onChange={onChange}/> : ""}{" "}
+      {selected === 0 ? <General /> : ""}{" "}
+      {selected === 1 ? <Educational/> : ""}{" "}
+      {selected === 2 ? <Professional/> : ""}{" "}
       </div>
     </div>
   );

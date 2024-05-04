@@ -1,13 +1,10 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import Header from './components/header'
-import Body from './components/body'
+import App from './App'
 import './index.css'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <Header/>
-    <Body/>
-    
+    <App/>
   </React.StrictMode>,
 )

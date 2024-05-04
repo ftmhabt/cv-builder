@@ -1,35 +1,43 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import Header from "./components/header";
+import Body from "./components/body";
+import cvContext from "./context/general-context";
+import soloContext from "./context/education-context";
+import { useState } from "react";
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [address, setAddress] = useState("");
+  const [exprience, setExprience] = useState([]);
+  const [education, setEducation] = useState([]);
+  const [skills, setSkills] = useState([]);
 
+  const [eduName,setEduName]=useState('');
+  const [eduDate,setEduDate]=useState('');
+  const [eduNumbers,setEduNumbers]=useState(1);
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <cvContext.Provider
+      value={{
+        name,
+        setName,
+        email,
+        setEmail,
+        address,
+        setAddress,
+        exprience,
+        setExprience,
+        education,
+        setEducation,
+        skills,
+        setSkills
+      }}
+    >
+      <soloContext.Provider value={{eduName,setEduName,eduDate,setEduDate,eduNumbers,setEduNumbers}}>
+      <Header />
+      <Body />
+      </soloContext.Provider>
+    </cvContext.Provider>
+  );
 }
 
-export default App
+export default App;

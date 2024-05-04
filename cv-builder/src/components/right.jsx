@@ -1,7 +1,10 @@
+import { useContext } from "react";
+import cvContext from '../context/general-context'
 import "./../styles/right.css";
 
-export default function Right({ data }) {
-  let [first, last] = data.name.split(" ");
+export default function Right() {
+  const context=useContext(cvContext)
+  let [first, last] = context.name.split(" ");
   return (
     <div className="cv">
       <div className="paper">
@@ -11,27 +14,29 @@ export default function Right({ data }) {
             <div className="last">{last}</div>
           </div>
           <div className="info">
-            <div className="phonenumber">{data.number}</div>
-            <div className="email">{data.email}</div>
+            <div className="email">{context.email}</div>
+          </div>
+          <div className="info">
+            <div className="address">{context.address}</div>
           </div>
         </div>
         <div className="education">
           <h3>Education</h3>
-          <div>
-            <h5>{data.schoolName}</h5>
-            <h5>{data.studyTitle}</h5>
-            <h5>{data.studyDate}</h5>
-          </div>
+          {context.education?.map(edu=>{
+            <div>
+              <div>{edu.schoolname}</div>
+              <div>{edu.schoolyear}</div>
+            </div>
+          })}
         </div>
         <div className="profession">
-            <h3>Expriance</h3>
+          <h3>Work Exprience</h3>
+          {context.exprience?.map(exprience=>{
             <div>
-            <h5>in {data.companyName}</h5>
-            <h5>as {data.positionTitle}</h5>
-            <h5>{data.mainResponsibilities}</h5>
-            <h5>from: {data.from}</h5>
-            <h5>until: {data.until}</h5>
-          </div>
+              <div>{exprience.exname}</div>
+              <div>{exprience.exyear}</div>
+            </div>
+          })}
         </div>
       </div>
     </div>
