@@ -22,7 +22,7 @@ export default function Right() {
         </div>
         <div className="education">
           <h3>Education</h3>
-          {context.education?.map(edu=>{
+          {context.education&& context.education.map(edu=>{
             <div>
               <div>{edu.schoolname}</div>
               <div>{edu.schoolyear}</div>
