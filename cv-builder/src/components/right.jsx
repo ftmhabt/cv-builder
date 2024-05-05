@@ -26,15 +26,25 @@ export default function Right() {
             <div key={item.id}>
               <div>{item.field}</div>
               <div>{item.univercity}</div>
+              <div>{item.from}</div>
+              <div>{item.to}</div>
+              <div>{item.location}</div>
             </div>
           ))}
         </div>
         <div className="profession">
           <h3>Work Exprience</h3>
-          {context.exprience?.map((exprience) => (
-            <div key={exprience.id}>
-              <div>{exprience.exname}</div>
-              <div>{exprience.exyear}</div>
+          {context.exprience.map((item) => (
+            <div key={item.id}>
+              <div>{item.role}</div>
+              <div>{item.company}</div>
+              <div>{item.from}</div>
+              <div>{item.to}</div>
+              <div>{item.location}</div>
+              <div>{item.details}</div>
+              <div>{item.stack.map((item,index)=>(
+                <div key={index}>{item}</div>
+              ))}</div>
             </div>
           ))}
         </div>

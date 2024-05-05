@@ -29,20 +29,28 @@ export default function Educational() {
         value={data.univercity}
         onChange={(e) => handleChange(e, data.id)}
       />
-      <label htmlFor="univercity">Univercity</label>
+      <label htmlFor="from">from</label>
       <input
         type="text"
-        name="univercity"
-        id="univercity"
-        value={data.univercity}
+        name="from"
+        id="from"
+        value={data.from}
         onChange={(e) => handleChange(e, data.id)}
       />
-      <label htmlFor="univercity">Univercity</label>
+      <label htmlFor="to">to</label>
       <input
         type="text"
-        name="univercity"
-        id="univercity"
-        value={data.univercity}
+        name="to"
+        id="to"
+        value={data.to}
+        onChange={(e) => handleChange(e, data.id)}
+      />
+      <label htmlFor="location">location</label>
+      <input
+        type="text"
+        name="location"
+        id="location"
+        value={data.location}
         onChange={(e) => handleChange(e, data.id)}
       />
     </form>
