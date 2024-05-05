@@ -1,42 +1,36 @@
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import cvContext from "../context/general-context";
 
 export default function Educational() {
   const context = useContext(cvContext);
-  const [key, setKey] = useState(context.education.length - 1);
 
-  return (
-    <form>
-      <label htmlFor="name">School Name</label>
+  const handleChange = (e, id) => {
+    const newEducation = context.education.map((data) =>
+      data.id === id ? { ...data, [e.target.name]: e.target.value } : data
+    );
+
+    context.setEducation(newEducation);
+    console.log(newEducation, context.education);
+  };
+
+  return context.education.map((data, index) => (
+    <form key={index}>
+      <label htmlFor="field">Field</label>
       <input
         type="text"
-        id="name"
-        value={context.education.schoolName}
-        onChange={(e) =>{
-          const newEducation=[
-            ...context.education.map((data, index) =>
-              index === key ? { schoolName: e.target.value, ...data } : data
-            ),
-          ];
-          context.setEducation(newEducation);
-        }}
+        name="field"
+        id="field"
+        value={data.field}
+        onChange={(e) => handleChange(e, data.id)}
       />
-      <label htmlFor="year">Name of School</label>
+      <label htmlFor="univercity">Univercity</label>
       <input
         type="text"
-        id="year"
-        value={context.education.schoolYear}
-        onChange={(e) => {
-          const newEducation = [
-            ...context.education.map((data, index) =>
-              index === key ? { schoolYear: e.target.value, ...data } : data
-            ),
-          ];
-          context.setEducation(newEducation);
-          console.log(context.education);
-        }}
+        name="univercity"
+        id="univercity"
+        value={data.univercity}
+        onChange={(e) => handleChange(e, data.id)}
       />
-      <button onClick={() => setKey(key + 1)}>Apply</button>
     </form>
-  );
+  ));
 }
