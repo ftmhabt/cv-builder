@@ -1,5 +1,4 @@
 import { createContext } from "react";
-import { v4 as uuid } from "uuid";
 
 const cvContext = createContext({
     name: '',
@@ -8,29 +7,9 @@ const cvContext = createContext({
     setEmail: () => { },
     address: '',
     setAddress: () => { },
-    exprience: [
-        {
-          id: uuid(),
-          role: "developer",
-          company: "soluteo",
-          from: new Date(2005, 11, 17),
-          to: new Date(2010, 11, 17),
-          location: "france",
-          details: "",
-          stack: ["react", "redux", "tailwind"],
-        },
-      ],
+    exprience: [],
     setExprience: () => { },
-    education: [
-        {
-            id: uuid(),
-            field: "computer science",
-            univercity: "strasbourg",
-            from: new Date(2005, 11, 17),
-            to: new Date(2010, 11, 17),
-            location: "france",
-          },
-      ],
+    education: [],
     setEducation: () => { },
     skills: [],
     setSkills: () => { },
