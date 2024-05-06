@@ -8,6 +8,7 @@ function App() {
   const [name, setName] = useState("fatemeh abtahi");
   const [email, setEmail] = useState("ftmh.a78@gmail.com");
   const [linkedin, setLinkedin] = useState("");
+  const [about, setAbout] = useState("");
   const [exprience, setExprience] = useState([
     {
       id: uuid(),
@@ -41,6 +42,8 @@ function App() {
         setEmail,
         linkedin,
         setLinkedin,
+        about,
+        setAbout,
         exprience,
         setExprience,
         education,

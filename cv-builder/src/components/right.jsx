@@ -21,9 +21,9 @@ export default function Right() {
           </div>
         </div>
         <div className="head">
-          Profile <hr />{" "}
+          Profile <hr />
         </div>
-        <div className="detail odd">{context.details}</div>
+        <div className="about odd">{context.about}</div>
         <div className="head">
           Education <hr />
         </div>

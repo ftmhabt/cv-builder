@@ -7,13 +7,15 @@ const cvContext = createContext({
     setEmail: () => { },
     linkedin: '',
     setLinkedin: () => { },
+    about: '',
+    setAbout: () => { },
     exprience: [],
     setExprience: () => { },
     education: [],
     setEducation: () => { },
     skills: [],
     setSkills: () => { },
-    
+
 });
 
 export default cvContext;

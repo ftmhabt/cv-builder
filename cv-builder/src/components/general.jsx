@@ -27,6 +27,13 @@ export default function General() {
         value={context.linkedin}
         onChange={(e) => context.setLinkedin(e.target.value)}
       />
+      <label htmlFor="about">About me</label>
+      <textarea
+        name="about"
+        id="about"
+        value={context.about}
+        onChange={(e) => context.setAbout(e.target.value)}
+      ></textarea>
     </form>
   );
 }
