@@ -1,6 +1,9 @@
 import { useContext } from "react";
 import cvContext from "../context/general-context";
 import "./../styles/right.css";
+import Icon from "@mdi/react";
+import { mdiCalendarRange } from "@mdi/js";
+import { mdiMapMarkerOutline } from "@mdi/js";
 
 export default function Right() {
   const context = useContext(cvContext);
@@ -25,6 +28,32 @@ export default function Right() {
         </div>
         <div className="about odd">{context.about}</div>
         <div className="head">
+          Work Exprience
+          <hr />
+        </div>
+        <div className="odd">
+          {context.exprience.map((item) => (
+            <div key={item.id} className="profession">
+              <div className="bold">{item.role}</div>
+              <div className="bold">{item.company}</div>
+              <div className="theme flex">
+                <Icon path={mdiCalendarRange} size={.4} />
+                <div>{item.from}</div>
+                <div>-</div>
+                <div>{item.to}</div>
+                <Icon path={mdiMapMarkerOutline} size={.4} />
+                <div>{item.location}</div>
+              </div>
+              <div>{item.details}</div>
+              <div className="flex stack">Stack: 
+                {item.stack.map((stack, index) => (
+                  <div key={index}>{stack}{index===item.stack.length-1?'':' / '}</div>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+        <div className="head">
           Education <hr />
         </div>
         <div className="education odd">
@@ -35,27 +64,6 @@ export default function Right() {
               <div>{item.from}</div>
               <div>{item.to}</div>
               <div>{item.location}</div>
-            </div>
-          ))}
-        </div>
-        <div className="head">
-          Work Exprience
-          <hr />
-        </div>
-        <div className="profession odd">
-          {context.exprience.map((item) => (
-            <div key={item.id}>
-              <div>{item.role}</div>
-              <div>{item.company}</div>
-              <div>{item.from}</div>
-              <div>{item.to}</div>
-              <div>{item.location}</div>
-              <div>{item.details}</div>
-              <div>
-                {item.stack.map((item, index) => (
-                  <div key={index}>{item}</div>
-                ))}
-              </div>
             </div>
           ))}
         </div>

@@ -1,9 +1,8 @@
-@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap');
 
 :root {
   --border:2px solid #D4D4D4;
   --gray: #D4D4D4;
-  font-family: 'Ubuntu', sans-serif;
+  font-family:  sans-serif;
 }
 
 #root{

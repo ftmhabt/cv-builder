@@ -27,7 +27,11 @@
 
 .odd {
   padding-left: 1rem;
-  color: rgb(61, 61, 61);
+  color: rgb(99, 99, 99);
+
+  display: flex;
+  flex-direction: column;
+  gap: .5rem;
 }
 
 .name {
@@ -49,6 +53,22 @@
   color: var(--theme-color);
 }
 
+.flex {
+    display: flex;
+    gap: .25rem;
+    align-items: center;
+}
+
+.bold{
+    color: black;
+    font-size: .75rem;
+    line-height: .75rem;
+}
+
+.stack{
+    margin-top: .5rem;
+}
+
 .head {
   display: flex;
   gap: 0.5rem;
@@ -66,3 +86,7 @@ hr {
   border-left: 0;
 }
 
+.profession{
+    display: flex;
+    flex-direction: column;
+}
