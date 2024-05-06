@@ -8,20 +8,26 @@ export default function Right() {
   return (
     <div className="cv">
       <div className="paper">
-        <div className="header">
+        <div className="personal">
           <div className="name">
             <div className="first">{first}</div>
-            <div className="last">{last}</div>
+            <div className="last theme">{last}</div>
           </div>
           <div className="info">
-            <div className="email">{context.email}</div>
-          </div>
-          <div className="info">
-            <div className="address">{context.address}</div>
+            <div>Email:</div>
+            <div className="theme">{context.email}</div>
+            <div>LinkedIn:</div>
+            <div className="theme">{context.linkedin}</div>
           </div>
         </div>
-        <div className="education">
-          <h3>Education</h3>
+        <div className="head">
+          Profile <hr />{" "}
+        </div>
+        <div className="detail odd">{context.details}</div>
+        <div className="head">
+          Education <hr />
+        </div>
+        <div className="education odd">
           {context.education.map((item) => (
             <div key={item.id}>
               <div>{item.field}</div>
@@ -32,8 +38,11 @@ export default function Right() {
             </div>
           ))}
         </div>
-        <div className="profession">
-          <h3>Work Exprience</h3>
+        <div className="head">
+          Work Exprience
+          <hr />
+        </div>
+        <div className="profession odd">
           {context.exprience.map((item) => (
             <div key={item.id}>
               <div>{item.role}</div>
@@ -42,9 +51,11 @@ export default function Right() {
               <div>{item.to}</div>
               <div>{item.location}</div>
               <div>{item.details}</div>
-              <div>{item.stack.map((item,index)=>(
-                <div key={index}>{item}</div>
-              ))}</div>
+              <div>
+                {item.stack.map((item, index) => (
+                  <div key={index}>{item}</div>
+                ))}
+              </div>
             </div>
           ))}
         </div>

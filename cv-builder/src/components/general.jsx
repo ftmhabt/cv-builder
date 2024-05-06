@@ -20,12 +20,12 @@ export default function General() {
         value={context.email}
         onChange={(e) => context.setEmail(e.target.value)}
       />
-      <label htmlFor="address">Address</label>
+      <label htmlFor="linkedin">LinkedIn</label>
       <input
         type="text"
-        id="address"
-        value={context.address}
-        onChange={(e) => context.setAddress(e.target.value)}
+        id="linkedin"
+        value={context.linkedin}
+        onChange={(e) => context.setLinkedin(e.target.value)}
       />
     </form>
   );

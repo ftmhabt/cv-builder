@@ -1,51 +1,68 @@
-.cv{
-    background-color: var(--gray);
+:root {
+  --theme-color: #7e8724;
+}
+.cv {
+  background-color: var(--gray);
 }
 
-.paper{
-    background-color: white;
-    width: 450px;
-    height: 570px;
-    margin: 1.5rem auto;
-    padding: 2rem;
+.paper {
+  background-color: white;
+  width: 450px;
+  min-height: 570px;
+  margin: 1.5rem auto;
+  padding: 2rem;
+  font-size: 0.5rem;
+  font-weight: bold;
+  display: flex;
+  flex-direction: column;
+  gap: .25rem;
 }
 
-.header{
-    display: flex;
-    height: 70px;
+.personal {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: .25rem;
 }
 
-.name{
-    font-size: 2rem;
+.odd {
+  padding-left: 1rem;
+  color: rgb(61, 61, 61);
 }
 
-.last{
-    font-weight: bold;
+.name {
+  font-size: 1.5rem;
+  display: flex;
+  text-align: center;
 }
 
-.info{
-    width: 180px;
-    height: 100px;
-    font-size: .75rem;
-    background-color: var(--gray);
-    margin-top: -2rem;
-    margin-left: auto;
-    padding: 1rem;
-    padding-top: 2.5rem;
+.last {
+  padding-left: 0.5rem;
 }
 
-.education,
-.profession{
-    height: 70px;
-    margin: 2rem 0;
-    display: flex;
+.info {
+  display: flex;
+  gap: 0.5rem;
 }
 
-.education div,
-.profession div{
-    margin-left: 125px;
+.theme {
+  color: var(--theme-color);
 }
 
-.profession{
-    height: 100px;
+.head {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  font-weight: bolder;
 }
+
+.head > * {
+  flex: 1;
+}
+
+hr {
+  border-color: var(--gray);
+  border-top: 1px;
+  border-left: 0;
+}
+

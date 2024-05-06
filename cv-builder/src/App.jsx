@@ -5,9 +5,9 @@ import { useState } from "react";
 import { v4 as uuid } from "uuid";
 
 function App() {
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [address, setAddress] = useState("");
+  const [name, setName] = useState("fatemeh abtahi");
+  const [email, setEmail] = useState("ftmh.a78@gmail.com");
+  const [linkedin, setLinkedin] = useState("");
   const [exprience, setExprience] = useState([
     {
       id: uuid(),
@@ -39,8 +39,8 @@ function App() {
         setName,
         email,
         setEmail,
-        address,
-        setAddress,
+        linkedin,
+        setLinkedin,
         exprience,
         setExprience,
         education,
