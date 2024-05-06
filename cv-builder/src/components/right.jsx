@@ -33,21 +33,25 @@ export default function Right() {
         </div>
         <div className="odd">
           {context.exprience.map((item) => (
-            <div key={item.id} className="profession">
+            <div key={item.id} className="flex-col">
               <div className="bold">{item.role}</div>
               <div className="bold">{item.company}</div>
-              <div className="theme flex">
-                <Icon path={mdiCalendarRange} size={.4} />
+              <div className="theme flex thin">
+                <Icon path={mdiCalendarRange} size={0.4} />
                 <div>{item.from}</div>
                 <div>-</div>
                 <div>{item.to}</div>
-                <Icon path={mdiMapMarkerOutline} size={.4} />
+                <Icon path={mdiMapMarkerOutline} size={0.4} />
                 <div>{item.location}</div>
               </div>
               <div>{item.details}</div>
-              <div className="flex stack">Stack: 
+              <div className="flex stack">
+                Stack:
                 {item.stack.map((stack, index) => (
-                  <div key={index}>{stack}{index===item.stack.length-1?'':' / '}</div>
+                  <div key={index}>
+                    {stack}
+                    {index === item.stack.length - 1 ? "" : " / "}
+                  </div>
                 ))}
               </div>
             </div>
@@ -58,12 +62,17 @@ export default function Right() {
         </div>
         <div className="education odd">
           {context.education.map((item) => (
-            <div key={item.id}>
-              <div>{item.field}</div>
-              <div>{item.univercity}</div>
-              <div>{item.from}</div>
-              <div>{item.to}</div>
-              <div>{item.location}</div>
+            <div key={item.id} className="flex-col">
+              <div className="bold">{item.field}</div>
+              <div className="bold">{item.univercity}</div>
+              <div className="theme flex thin">
+                <Icon path={mdiCalendarRange} size={0.4} />
+                <div>{item.from}</div>
+                <div>-</div>
+                <div>{item.to}</div>
+                <Icon path={mdiMapMarkerOutline} size={0.4} />
+                <div>{item.location}</div>
+              </div>
             </div>
           ))}
         </div>

@@ -15,23 +15,23 @@
   font-weight: bold;
   display: flex;
   flex-direction: column;
-  gap: .25rem;
+  gap: 0.25rem;
 }
 
 .personal {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: .25rem;
+  gap: 0.25rem;
 }
 
 .odd {
-  padding-left: 1rem;
+  padding-left: 0.5rem;
   color: rgb(99, 99, 99);
 
   display: flex;
   flex-direction: column;
-  gap: .5rem;
+  gap: 0.5rem;
 }
 
 .name {
@@ -41,7 +41,7 @@
 }
 
 .last {
-  padding-left: 0.5rem;
+  padding-left: 0.25rem;
 }
 
 .info {
@@ -54,21 +54,24 @@
 }
 
 .flex {
-    display: flex;
-    gap: .25rem;
-    align-items: center;
+  display: flex;
+  gap: 0.25rem;
+  align-items: center;
 }
 
-.bold{
-    color: black;
-    font-size: .75rem;
-    line-height: .75rem;
+.bold {
+  color: black;
+  font-size: 0.75rem;
+  line-height: 0.8rem;
 }
 
-.stack{
-    margin-top: .5rem;
+.stack {
+  margin-top: 0.5rem;
 }
 
+.thin {
+  font-weight: lighter;
+}
 .head {
   display: flex;
   gap: 0.5rem;
@@ -86,7 +89,7 @@ hr {
   border-left: 0;
 }
 
-.profession{
-    display: flex;
-    flex-direction: column;
+.flex-col {
+  display: flex;
+  flex-direction: column;
 }
