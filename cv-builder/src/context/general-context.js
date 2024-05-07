@@ -15,7 +15,8 @@ const cvContext = createContext({
     setEducation: () => { },
     skills: [],
     setSkills: () => { },
-
+    projects: [],
+    setProjects: () => { }
 });
 
 export default cvContext;

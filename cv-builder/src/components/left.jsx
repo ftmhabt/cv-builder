@@ -6,6 +6,7 @@ import Educational from "./educational";
 import Professional from "./professional";
 import cvContext from "../context/general-context";
 import { v4 as uuid } from "uuid";
+import Projects from "./projects";
 
 export default function Left() {
   const [selected, setSelected] = useState(0);
@@ -42,6 +43,21 @@ export default function Left() {
     ];
     context.setExprience(newArray);
   };
+
+  const AddProject = () => {
+    const newArray = [
+      ...context.projects,
+      {
+        id: uuid(),
+        name: "",
+        demo: "",
+        github: "",
+        details: "",
+        stack: "",
+      },
+    ];
+    context.setProjects(newArray);
+  };
   return (
     <div className="forms">
       <div className="form-type">
@@ -57,6 +73,10 @@ export default function Left() {
           educational experience
           {selected === 2 ? <img src={rightIcon} alt="" /> : ""}
         </div>
+        <div className="educational-btn" onClick={() => setSelected(3)}>
+          projects
+          {selected === 3 ? <img src={rightIcon} alt="" /> : ""}
+        </div>
       </div>
       <div className="form">
         {selected === 0 ? <General /> : ""}
@@ -67,7 +87,7 @@ export default function Left() {
           </div>
         ) : (
           ""
-        )}{" "}
+        )}
         {selected === 2 ? (
           <div>
             <Educational />
@@ -75,7 +95,15 @@ export default function Left() {
           </div>
         ) : (
           ""
-        )}{" "}
+        )}
+        {selected === 3 ? (
+          <div>
+            <Projects />
+            <button onClick={AddProject}>+</button>
+          </div>
+        ) : (
+          ""
+        )}
       </div>
     </div>
   );

@@ -58,19 +58,54 @@ export default function Right() {
                   )}
                 </div>
                 <div>{item.details}</div>
-                <div className="flex stack">
-                  Stack:
-                  {item.stack.map((stack, index) => (
-                    <div key={index}>
-                      {stack}
-                      {index === item.stack.length - 1 ? "" : " / "}
-                    </div>
-                  ))}
-                </div>
+                {item.stack.length > 0 && (
+                  <div className="flex stack">
+                    Stack:
+                    {item.stack.map((stack, index) => (
+                      <div key={index}>
+                        {stack}
+                        {index === item.stack.length - 1 ? "" : " / "}
+                      </div>
+                    ))}
+                  </div>
+                )}
               </div>
             ))}
           </div>
         )}
+
+        {context.projects.length > 0 && (
+          <div className="head">
+            Projects
+            <hr />
+          </div>
+        )}
+        {context.projects.length > 0 && (
+          <div className="odd">
+            {context.projects.map((item) => (
+              <div key={item.id} className="flex-col">
+                <div className="bold">{item.name}</div>
+                <div className="theme flex">
+                {item.demo && <a href={item.demo}>demo</a>}
+                {item.github && <a href={item.github}>github</a>}
+                </div>
+                <div>{item.details}</div>
+                {item.stack.length > 0 && (
+                  <div className="flex stack">
+                    Stack:
+                    {item.stack.map((stack, index) => (
+                      <div key={index}>
+                        {stack}
+                        {index === item.stack.length - 1 ? "" : " / "}
+                      </div>
+                    ))}
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
+        )}
+
         {context.education.length > 0 && (
           <div className="head">
             Education <hr />
