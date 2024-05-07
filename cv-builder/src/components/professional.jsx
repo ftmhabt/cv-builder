@@ -61,7 +61,7 @@ export default function Professional() {
         value={data.location}
         onChange={(e) => handleChange(e, data.id)}
       />
-      <label htmlFor="details"></label>
+      <label htmlFor="details">details</label>
       <textarea
         name="details"
         id="details"
