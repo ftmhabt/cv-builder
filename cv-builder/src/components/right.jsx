@@ -42,12 +42,20 @@ export default function Right() {
                 <div className="bold">{item.role}</div>
                 <div className="bold">{item.company}</div>
                 <div className="theme flex thin">
-                  <Icon path={mdiCalendarRange} size={0.4} />
-                  <div>{item.from}</div>
-                  <div>-</div>
-                  <div>{item.to}</div>
-                  <Icon path={mdiMapMarkerOutline} size={0.4} />
-                  <div>{item.location}</div>
+                  {item.from && item.to && (
+                    <div className="flex">
+                      <Icon path={mdiCalendarRange} size={0.4} />
+                      <div>{item.from}</div>
+                      <div>-</div>
+                      <div>{item.to}</div>
+                    </div>
+                  )}
+                  {item.location && (
+                    <div className="flex">
+                      <Icon path={mdiMapMarkerOutline} size={0.4} />
+                      <div>{item.location}</div>
+                    </div>
+                  )}
                 </div>
                 <div>{item.details}</div>
                 <div className="flex stack">
@@ -75,12 +83,20 @@ export default function Right() {
                 <div className="bold">{item.field}</div>
                 <div className="bold">{item.univercity}</div>
                 <div className="theme flex thin">
-                  <Icon path={mdiCalendarRange} size={0.4} />
-                  <div>{item.from}</div>
-                  <div>-</div>
-                  <div>{item.to}</div>
-                  <Icon path={mdiMapMarkerOutline} size={0.4} />
-                  <div>{item.location}</div>
+                  {item.from && item.to && (
+                    <div className="flex">
+                      <Icon path={mdiCalendarRange} size={0.4} />
+                      <div>{item.from}</div>
+                      <div>-</div>
+                      <div>{item.to}</div>
+                    </div>
+                  )}
+                  {item.location && (
+                    <div className="flex">
+                      <Icon path={mdiMapMarkerOutline} size={0.4} />
+                      <div>{item.location}</div>
+                    </div>
+                  )}
                 </div>
               </div>
             ))}
