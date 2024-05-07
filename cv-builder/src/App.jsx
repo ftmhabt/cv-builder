@@ -2,35 +2,14 @@ import Header from "./components/header";
 import Body from "./components/body";
 import cvContext from "./context/general-context";
 import { useState } from "react";
-import { v4 as uuid } from "uuid";
 
 function App() {
-  const [name, setName] = useState("fatemeh abtahi");
-  const [email, setEmail] = useState("ftmh.a78@gmail.com");
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
   const [linkedin, setLinkedin] = useState("");
   const [about, setAbout] = useState("");
-  const [exprience, setExprience] = useState([
-    {
-      id: uuid(),
-      role: "developer",
-      company: "soluteo",
-      from: '2017',
-      to: '2019',
-      location: "france",
-      details: "",
-      stack: ["react", "redux", "tailwind"],
-    },
-  ]);
-  const [education, setEducation] = useState([
-    {
-      id: uuid(),
-      field: "computer science",
-      univercity: "strasbourg",
-      from: '2011',
-      to: '2015',
-      location: "france",
-    },
-  ]);
+  const [exprience, setExprience] = useState([]);
+  const [education, setEducation] = useState([]);
   const [skills, setSkills] = useState([]);
 
   return (
