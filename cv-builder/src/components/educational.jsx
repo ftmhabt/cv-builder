@@ -53,6 +53,7 @@ export default function Educational() {
         value={data.location}
         onChange={(e) => handleChange(e, data.id)}
       />
+      <hr />
     </form>
   ));
 }

@@ -5,7 +5,7 @@ export default function General() {
   const context = useContext(cvContext);
 
   return (
-    <form>
+    <form className="single-form">
       <label htmlFor="name">Full Name</label>
       <input
         type="text"

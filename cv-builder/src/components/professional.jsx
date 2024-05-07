@@ -76,6 +76,7 @@ export default function Professional() {
         value={data.stack.toString()}
         onChange={(e) => handleStacks(e, data.id)}
       />
+      <hr />
     </form>
   ));
 }

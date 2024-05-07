@@ -29,3 +29,16 @@
   overflow-y: scroll;
   height: 90vh;
 }
+
+.single-form{
+  display: flex;
+flex-direction: column;
+padding: 1rem;
+}
+.form div{
+  
+display: flex;
+flex-direction: column;
+padding: 1rem;
+gap: 1rem;
+}
