@@ -6,7 +6,7 @@ import { mdiEyeOutline, mdiXml } from "@mdi/js";
 export default function PreviewProject() {
   const context = useContext(cvContext);
   return (
-    <div>
+    <>
       {context.projects.length > 0 && (
         <div className="head">
           Projects
@@ -52,6 +52,6 @@ export default function PreviewProject() {
           ))}
         </div>
       )}
-    </div>
+    </>
   );
 }

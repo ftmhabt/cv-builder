@@ -61,20 +61,20 @@ export default function Left() {
   return (
     <div className="forms">
       <div className="form-type">
-        <div className="general-btn" onClick={() => setSelected(0)}>
-          general information
+        <div onClick={() => setSelected(0)}>
+          general
           {selected === 0 ? <img src={rightIcon} alt="" /> : ""}
         </div>
-        <div className="practical-btn" onClick={() => setSelected(1)}>
-          practical experience
+        <div onClick={() => setSelected(1)}>
+          experiences
           {selected === 1 ? <img src={rightIcon} alt="" /> : ""}
         </div>
-        <div className="educational-btn" onClick={() => setSelected(2)}>
-          educational experience
+        <div onClick={() => setSelected(2)}>
+          projects
           {selected === 2 ? <img src={rightIcon} alt="" /> : ""}
         </div>
-        <div className="educational-btn" onClick={() => setSelected(3)}>
-          projects
+        <div onClick={() => setSelected(3)}>
+        educations
           {selected === 3 ? <img src={rightIcon} alt="" /> : ""}
         </div>
       </div>
@@ -88,7 +88,7 @@ export default function Left() {
         ) : (
           ""
         )}
-        {selected === 2 ? (
+        {selected === 3 ? (
           <div>
             <Educational />
             <button onClick={AddEducation}>+</button>
@@ -96,7 +96,7 @@ export default function Left() {
         ) : (
           ""
         )}
-        {selected === 3 ? (
+        {selected === 2 ? (
           <div>
             <Projects />
             <button onClick={AddProject}>+</button>

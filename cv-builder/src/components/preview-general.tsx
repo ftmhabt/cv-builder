@@ -6,7 +6,7 @@ export default function PreviewGeneral() {
   const context = useContext(cvContext);
   let [first, last] = context.name.split(" ");
   return (
-    <div>
+    <>
       <div className="personal">
         <div className="name">
           <div className="first">{first}</div>
@@ -25,6 +25,6 @@ export default function PreviewGeneral() {
         </div>
       )}
       <div className="about odd">{context.about}</div>
-    </div>
+    </>
   );
 }

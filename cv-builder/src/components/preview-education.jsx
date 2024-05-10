@@ -6,7 +6,7 @@ import { mdiCalendarRange, mdiMapMarkerOutline } from "@mdi/js";
 export default function PreviewEducation() {
   const context = useContext(cvContext);
   return (
-    <div>
+    <>
       {context.education.length > 0 && (
         <div className="head">
           Education <hr />
@@ -38,6 +38,6 @@ export default function PreviewEducation() {
           ))}
         </div>
       )}
-    </div>
+    </>
   );
 }

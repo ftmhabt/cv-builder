@@ -6,7 +6,7 @@ import { mdiCalendarRange, mdiMapMarkerOutline } from "@mdi/js";
 export default function PreviewExprience() {
   const context = useContext(cvContext);
   return (
-    <div>
+    <>
       {context.exprience.length > 0 && (
         <div className="head">
           Work Exprience
@@ -51,6 +51,6 @@ export default function PreviewExprience() {
           ))}
         </div>
       )}
-    </div>
+    </>
   );
 }
