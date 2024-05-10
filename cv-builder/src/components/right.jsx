@@ -4,6 +4,7 @@ import "./../styles/right.css";
 import Icon from "@mdi/react";
 import { mdiCalendarRange } from "@mdi/js";
 import { mdiMapMarkerOutline } from "@mdi/js";
+import { mdiEyeOutline ,mdiXml} from "@mdi/js";
 
 export default function Right() {
   const context = useContext(cvContext);
@@ -86,8 +87,18 @@ export default function Right() {
               <div key={item.id} className="flex-col">
                 <div className="bold">{item.name}</div>
                 <div className="theme flex">
-                {item.demo && <a href={item.demo}>demo</a>}
-                {item.github && <a href={item.github}>github</a>}
+                  {item.demo && (
+                    <div className="flex">
+                      <Icon path={mdiEyeOutline} size={0.4} />
+                      <a href={item.demo} target="_blank">demo</a>
+                    </div>
+                  )}
+                  {item.github && (
+                    <div className="flex">
+                      <Icon path={mdiXml} size={0.4} />
+                      <a href={item.github} target="_blank">github</a>
+                    </div>
+                  )}
                 </div>
                 <div>{item.details}</div>
                 {item.stack.length > 0 && (

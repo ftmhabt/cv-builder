@@ -5,6 +5,9 @@
   background-color: var(--gray);
 }
 
+a{
+  color: var(--theme-color);
+}
 .paper {
   background-color: white;
   width: 450px;
