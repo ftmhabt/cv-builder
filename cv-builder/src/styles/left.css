@@ -42,3 +42,17 @@ flex-direction: column;
 padding: 1rem;
 gap: 1rem;
 }
+
+button{
+  background-color: white;
+  border: 1px var(--gray) solid;
+  font-size: large;
+  padding: .25rem;
+  border-radius: .5rem;
+  transition: background-color 200ms ease-in,color 200ms ease-in;
+}
+
+button:hover{
+  background-color: var(--gray);
+  color: white;
+}

@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import cvContext from "../context/general-context";
+import cvContext from "../../context/general-context";
 import Icon from "@mdi/react";
 import { mdiEyeOutline, mdiXml } from "@mdi/js";
 

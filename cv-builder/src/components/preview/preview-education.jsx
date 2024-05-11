@@ -1,24 +1,23 @@
 import { useContext } from "react";
-import cvContext from "../context/general-context";
+import cvContext from "../../context/general-context";
 import Icon from "@mdi/react";
 import { mdiCalendarRange, mdiMapMarkerOutline } from "@mdi/js";
 
-export default function PreviewExprience() {
+export default function PreviewEducation() {
   const context = useContext(cvContext);
   return (
     <>
-      {context.exprience.length > 0 && (
+      {context.education.length > 0 && (
         <div className="head">
-          Work Exprience
-          <hr />
+          Education <hr />
         </div>
       )}
-      {context.exprience.length > 0 && (
-        <div className="odd">
-          {context.exprience.map((item) => (
+      {context.education.length > 0 && (
+        <div className="education odd">
+          {context.education.map((item) => (
             <div key={item.id} className="flex-col">
-              <div className="bold">{item.role}</div>
-              <div className="bold">{item.company}</div>
+              <div className="bold">{item.field}</div>
+              <div className="bold">{item.univercity}</div>
               <div className="theme flex thin">
                 {item.from && item.to && (
                   <div className="flex">
@@ -35,18 +34,6 @@ export default function PreviewExprience() {
                   </div>
                 )}
               </div>
-              <div>{item.details}</div>
-              {item.stack.length > 0 && (
-                <div className="flex stack">
-                  Stack:
-                  {item.stack.map((stack, index) => (
-                    <div key={index}>
-                      {stack}
-                      {index === item.stack.length - 1 ? "" : " / "}
-                    </div>
-                  ))}
-                </div>
-              )}
             </div>
           ))}
         </div>
