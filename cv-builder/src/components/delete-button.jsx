@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import cvContext from "../context/general-context";
 
-export default function DeleteButton({ arrayName, id }) {
+export default function DeleteButton({ arrayName, id, type = "form" }) {
   const context = useContext(cvContext);
 
   const handleDelete = () => {
@@ -21,8 +21,13 @@ export default function DeleteButton({ arrayName, id }) {
           context[arrayName].filter((item) => item.id !== id)
         );
         break;
+      case "skills":
+        context.setSkills(
+          context[arrayName].filter((item) => item.id !== id)
+        );
+        break;
       default:
-        console.error('array name doesnt exist!');
+        console.error("array name doesnt exist!");
         break;
     }
   };
@@ -35,7 +40,8 @@ export default function DeleteButton({ arrayName, id }) {
         e.preventDefault();
       }}
     >
-      delete form
+      delete
+      {type === "form" ? "form" : ""}
     </button>
   );
 }

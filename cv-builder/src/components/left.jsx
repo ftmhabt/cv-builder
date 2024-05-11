@@ -7,6 +7,7 @@ import Professional from "./forms/professional";
 import cvContext from "../context/general-context";
 import { v4 as uuid } from "uuid";
 import Projects from "./forms/projects";
+import Skills from "./forms/skills";
 
 export default function Left() {
   const [selected, setSelected] = useState(0);
@@ -58,6 +59,12 @@ export default function Left() {
     ];
     context.setProjects(newArray);
   };
+
+  const AddSkills = () => {
+    const newArray = [...context.skills, { id: uuid(), name: "" }];
+    context.setSkills(newArray);
+  };
+
   return (
     <div className="forms">
       <div className="form-type">
@@ -74,8 +81,12 @@ export default function Left() {
           {selected === 2 ? <img src={rightIcon} alt="" /> : ""}
         </div>
         <div onClick={() => setSelected(3)}>
-        educations
+          educations
           {selected === 3 ? <img src={rightIcon} alt="" /> : ""}
+        </div>
+        <div onClick={() => setSelected(4)}>
+          skills
+          {selected === 4 ? <img src={rightIcon} alt="" /> : ""}
         </div>
       </div>
       <div className="form">
@@ -83,7 +94,9 @@ export default function Left() {
         {selected === 1 ? (
           <div>
             <Professional />
-            <button className="form-btn" onClick={AddExprience}>+</button>
+            <button className="form-btn" onClick={AddExprience}>
+              +
+            </button>
           </div>
         ) : (
           ""
@@ -91,7 +104,9 @@ export default function Left() {
         {selected === 3 ? (
           <div>
             <Educational />
-            <button className="form-btn" onClick={AddEducation}>+</button>
+            <button className="form-btn" onClick={AddEducation}>
+              +
+            </button>
           </div>
         ) : (
           ""
@@ -99,7 +114,19 @@ export default function Left() {
         {selected === 2 ? (
           <div>
             <Projects />
-            <button className="form-btn" onClick={AddProject}>+</button>
+            <button className="form-btn" onClick={AddProject}>
+              +
+            </button>
+          </div>
+        ) : (
+          ""
+        )}
+        {selected === 4 ? (
+          <div>
+            <Skills />
+            <button className="form-btn" onClick={AddSkills}>
+              +
+            </button>
           </div>
         ) : (
           ""

@@ -61,3 +61,14 @@ gap: 1rem;
 .small{
   font-size: small;
 }
+
+.skills{
+  flex-direction: row;
+  gap: .5rem;
+}
+
+.skills>*{
+  height: 40px;
+  flex: 1;
+  border-radius: 5px;
+}

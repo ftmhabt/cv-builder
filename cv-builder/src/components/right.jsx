@@ -3,6 +3,7 @@ import PreviewGeneral from "./preview/preview-general";
 import PreviewExprience from "./preview/preview-exprience";
 import PreviewProject from "./preview/preview-project";
 import PreviewEducation from "./preview/preview-education";
+import PreviewSkills from "./preview/preview-skills";
 
 export default function Right() {
   return (
@@ -12,6 +13,7 @@ export default function Right() {
         <PreviewExprience />
         <PreviewProject />
         <PreviewEducation />
+        <PreviewSkills />
       </div>
     </div>
   );
