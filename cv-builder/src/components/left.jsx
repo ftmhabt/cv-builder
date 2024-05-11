@@ -83,7 +83,7 @@ export default function Left() {
         {selected === 1 ? (
           <div>
             <Professional />
-            <button onClick={AddExprience}>+</button>
+            <button className="add-btn" onClick={AddExprience}>+</button>
           </div>
         ) : (
           ""
@@ -91,7 +91,7 @@ export default function Left() {
         {selected === 3 ? (
           <div>
             <Educational />
-            <button onClick={AddEducation}>+</button>
+            <button className="add-btn" onClick={AddEducation}>+</button>
           </div>
         ) : (
           ""
@@ -99,7 +99,7 @@ export default function Left() {
         {selected === 2 ? (
           <div>
             <Projects />
-            <button onClick={AddProject}>+</button>
+            <button className="add-btn" onClick={AddProject}>+</button>
           </div>
         ) : (
           ""

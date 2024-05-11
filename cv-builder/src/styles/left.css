@@ -43,7 +43,7 @@ padding: 1rem;
 gap: 1rem;
 }
 
-button{
+.add-btn{
   background-color: white;
   border: 1px var(--gray) solid;
   font-size: large;
@@ -52,7 +52,7 @@ button{
   transition: background-color 200ms ease-in,color 200ms ease-in;
 }
 
-button:hover{
+.add-btn:hover{
   background-color: var(--gray);
   color: white;
 }
