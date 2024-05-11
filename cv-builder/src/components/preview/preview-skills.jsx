@@ -12,11 +12,10 @@ export default function PreviewSkills() {
         </div>
       )}
       {context.skills.length > 0 && (
-        <div className="odd">
+        <div className="odd skill-preview">
           {context.skills.map((item) => (
-            <div key={item.id} className="skill-preview">
-              <div>{item.name}</div>
-            </div>
+            item.name&&
+            <div key={item.id}>{item.name}</div>
           ))}
         </div>
       )}
