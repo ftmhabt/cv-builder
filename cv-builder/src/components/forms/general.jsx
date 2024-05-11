@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import cvContext from "../context/general-context";
+import cvContext from "../../context/general-context";
 
 export default function General() {
   const context = useContext(cvContext);

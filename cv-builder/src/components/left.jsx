@@ -1,12 +1,12 @@
 import { useState, useContext } from "react";
 import "./../styles/left.css";
 import rightIcon from "./../assets/right.svg";
-import General from "./general";
-import Educational from "./educational";
-import Professional from "./professional";
+import General from "./forms/general";
+import Educational from "./forms/educational";
+import Professional from "./forms/professional";
 import cvContext from "../context/general-context";
 import { v4 as uuid } from "uuid";
-import Projects from "./projects";
+import Projects from "./forms/projects";
 
 export default function Left() {
   const [selected, setSelected] = useState(0);
