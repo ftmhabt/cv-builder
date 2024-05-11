@@ -1,6 +1,5 @@
 import { useContext } from "react";
-import cvContext from "../context/general-context";
-import "./../styles/right.css";
+import cvContext from "../../context/general-context";
 
 export default function PreviewGeneral() {
   const context = useContext(cvContext);

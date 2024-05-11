@@ -43,16 +43,21 @@ padding: 1rem;
 gap: 1rem;
 }
 
-.add-btn{
+.form-btn{
   background-color: white;
   border: 1px var(--gray) solid;
   font-size: large;
   padding: .25rem;
   border-radius: .5rem;
   transition: background-color 200ms ease-in,color 200ms ease-in;
+  height: 40px;
 }
 
-.add-btn:hover{
+.form-btn:hover{
   background-color: var(--gray);
   color: white;
+}
+
+.small{
+  font-size: small;
 }

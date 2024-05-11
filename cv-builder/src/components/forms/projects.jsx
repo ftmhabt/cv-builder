@@ -1,5 +1,6 @@
 import { useContext } from "react";
 import cvContext from "../../context/general-context";
+import DeleteButton from "../delete-button";
 
 export default function Projects() {
   const context = useContext(cvContext);
@@ -60,6 +61,7 @@ export default function Projects() {
         value={data.stack.toString()}
         onChange={(e) => handleStacks(e, data.id)}
       />
+      <DeleteButton arrayName={'projects'} id={data.id}/>
       <hr />
     </form>
   ));

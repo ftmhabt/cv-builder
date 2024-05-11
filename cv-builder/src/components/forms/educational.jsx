@@ -1,5 +1,6 @@
 import { useContext } from "react";
 import cvContext from "../../context/general-context";
+import DeleteButton from "../delete-button";
 
 export default function Educational() {
   const context = useContext(cvContext);
@@ -53,6 +54,7 @@ export default function Educational() {
         value={data.location}
         onChange={(e) => handleChange(e, data.id)}
       />
+      <DeleteButton arrayName={'education'} id={data.id}/>
       <hr />
     </form>
   ));
