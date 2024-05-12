@@ -41,7 +41,7 @@ export default function DeleteButton({ arrayName, id, type = "form" }) {
       }}
     >
       delete
-      {type === "form" ? "form" : ""}
+      {type === "form" ? " form" : ""}
     </button>
   );
 }
