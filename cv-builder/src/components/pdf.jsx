@@ -1,13 +1,12 @@
 import { Page, Text, View, Document, StyleSheet } from "@react-pdf/renderer";
 import { useContext } from "react";
-import cvContext from "../../context/general-context";
+import cvContext from '../context/general-context'
 import Icon from "@mdi/react";
 import {
   mdiCalendarRange,
   mdiMapMarkerOutline,
   mdiEyeOutline,
   mdiXml,
-  mdiCalendarRange,
 } from "@mdi/js";
 
 const styles = StyleSheet.create({
