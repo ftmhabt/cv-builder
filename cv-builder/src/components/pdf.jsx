@@ -1,6 +1,4 @@
 import { Page, Text, View, Document, StyleSheet } from "@react-pdf/renderer";
-import { useContext } from "react";
-import cvContext from '../context/general-context'
 import Icon from "@mdi/react";
 import {
   mdiCalendarRange,
@@ -15,25 +13,25 @@ const styles = StyleSheet.create({
   },
   paper: {
     backgroundColor: "white",
-    width: "450px",
-    minHeight: "570px",
-    margin: "1.5rem auto",
-    padding: "2rem",
-    fontSize: "0.5rem",
+    width: 450,
+    minHeight: 570,
+    margin: 20,
+    padding: 10,
+    fontSize: 15,
     fontWeight: "bold",
     display: "flex",
     flexDirection: "column",
-    gap: "0.5rem",
+    gap: 5,
   },
   personal: {
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
-    gap: "0.25rem",
+    gap: 5,
   },
 
   odd: {
-    paddingLeft: "1rem",
+    paddingLeft: 10,
     color: "black",
     fontWeight: "lighter",
 
@@ -43,7 +41,7 @@ const styles = StyleSheet.create({
   },
 
   name: {
-    fontSize: "15",
+    fontSize: 15,
     display: "flex",
     textAlign: "center",
   },
@@ -80,7 +78,7 @@ const styles = StyleSheet.create({
     gap: 10,
     alignItems: "center",
     fontSize: "x-small",
-    color: "rgba(0, 0, 0, 0.561)",
+    color: "gray",
   },
 
   //   ,head > * {
@@ -112,165 +110,163 @@ const styles = StyleSheet.create({
   //   }
 });
 
-export const MyDocument = () => {
-  const context = useContext(cvContext);
-  let [first, last] = context.name.split(" ");
-
+export const MyDocument = ({context}) => {
+    let [first, last] = context.name.split(" ");
   return (
     <Document>
       <Page size="A4" style={styles.page}>
-        <div style={styles.personal}>
-          <div style={styles.name}>
-            <div style={styles.first}>{first}</div>
-            <div style={styles.last}>{last}</div>
-          </div>
-          <div style={styles.info}>
-            {context.email && <div>Email:</div>}
-            <div style={styles.theme}>{context.email}</div>
-            {context.linkedin && <div>LinkedIn:</div>}
-            <div style={styles.theme}>{context.linkedin}</div>
-          </div>
-        </div>
-        {context.about && (
-          <div style={styles.head}>
+        <View style={styles.personal}>
+          <View style={styles.name}>
+            <Text style={styles.first}>hello</Text>
+            <Text style={styles.last}>mmmm</Text>
+          </View>
+          <View style={styles.info}>
+            {context.email && <Text>Email:</Text>}
+            <Text style={styles.theme}>{context.email}</Text>
+            {context.linkedin && <Text>LinkedIn:</Text>}
+            <Text style={styles.theme}>{context.linkedin}</Text>
+          </View>
+        </View>
+        {context.about ? (
+          <Text style={styles.head}>
             Profile <hr />
-          </div>
-        )}
-        <div style={[styles.about, styles.odd]}>{context.about}</div>
-        {context.exprience.length > 0 && (
-          <div style={styles.head}>
+          </Text>
+        ):null}
+        <Text style={[styles.about, styles.odd]}>{context.about}</Text>
+        {context.exprience.length > 0 ? (
+          <Text style={styles.head}>
             Work Exprience
             <hr />
-          </div>
-        )}
-        {context.exprience.length > 0 && (
-          <div style={styles.odd}>
+          </Text>
+        ):null}
+        {context.exprience.length > 0 ? (
+          <Text style={styles.odd}>
             {context.exprience.map((item) => (
-              <div key={item.id} style={styles.flexcol}>
-                <div style={styles.bold}>{item.role}</div>
-                <div style={styles.bold}>{item.company}</div>
-                <div style={[styles.theme, styles.flex, styles.thin]}>
-                  {item.from && item.to && (
-                    <div style={styles.flex}>
+              <Text key={item.id} style={styles.flexcol}>
+                <Text style={styles.bold}>{item.role}</Text>
+                <Text style={styles.bold}>{item.company}</Text>
+                <Text style={[styles.theme, styles.flex, styles.thin]}>
+                  {item.from && item.to ? (
+                    <Text style={styles.flex}>
                       <Icon path={mdiCalendarRange} size={0.4} />
-                      <div>{item.from}</div>
-                      <div>-</div>
-                      <div>{item.to}</div>
-                    </div>
-                  )}
-                  {item.location && (
-                    <div style={styles.flex}>
+                      <Text>{item.from}</Text>
+                      <Text>-</Text>
+                      <Text>{item.to}</Text>
+                    </Text>
+                  ):null}
+                  {item.location ? (
+                    <Text style={styles.flex}>
                       <Icon path={mdiMapMarkerOutline} size={0.4} />
-                      <div>{item.location}</div>
-                    </div>
-                  )}
-                </div>
-                <div>{item.details}</div>
-                {item.stack.length > 0 && (
-                  <div style={[styles.flex, styles.stack]}>
+                      <Text>{item.location}</Text>
+                    </Text>
+                  ):null}
+                </Text>
+                <Text>{item.details}</Text>
+                {item.stack.length > 0 ? (
+                  <Text style={[styles.flex, styles.stack]}>
                     Stack:
                     {item.stack.map((stack, index) => (
-                      <div key={index}>
+                      <Text key={index}>
                         {stack}
                         {index === item.stack.length - 1 ? "" : " / "}
-                      </div>
+                      </Text>
                     ))}
-                  </div>
-                )}
-              </div>
+                  </Text>
+                ):null}
+              </Text>
             ))}
-          </div>
-        )}
-        {context.projects.length > 0 && (
-          <div style={styles.head}>
+          </Text>
+        ):null}
+        {context.projects.length > 0 ? (
+          <Text style={styles.head}>
             Projects
             <hr />
-          </div>
-        )}
-        {context.projects.length > 0 && (
-          <div style={styles.odd}>
+          </Text>
+        ):null}
+        {context.projects.length > 0 ? (
+          <Text style={styles.odd}>
             {context.projects.map((item) => (
-              <div key={item.id} style={styles.flexcol}>
-                <div style={styles.bold}>{item.name}</div>
-                <div style={[styles.flex, styles.theme]}>
-                  {item.demo && (
-                    <div style={styles.flex}>
+              <Text key={item.id} style={styles.flexcol}>
+                <Text style={styles.bold}>{item.name}</Text>
+                <Text style={[styles.flex, styles.theme]}>
+                  {item.demo ? (
+                    <Text style={styles.flex}>
                       <Icon path={mdiEyeOutline} size={0.4} />
-                      <a href={item.demo} target="_blank">
+                      <Text href={item.demo} target="_blank">
                         demo
-                      </a>
-                    </div>
-                  )}
+                      </Text>
+                    </Text>
+                  ):null}
                   {item.github && (
-                    <div style={styles.flex}>
+                    <Text style={styles.flex}>
                       <Icon path={mdiXml} size={0.4} />
-                      <a href={item.github} target="_blank">
+                      <Text href={item.github} target="_blank">
                         github
-                      </a>
-                    </div>
+                      </Text>
+                    </Text>
                   )}
-                </div>
-                <div>{item.details}</div>
-                {item.stack.length > 0 && (
-                  <div style={[styles.flex, styles.theme]}>
+                </Text>
+                <Text>{item.details}</Text>
+                {item.stack.length > 0 ? (
+                  <Text style={[styles.flex, styles.theme]}>
                     Stack:
                     {item.stack.map((stack, index) => (
-                      <div key={index}>
+                      <Text key={index}>
                         {stack}
                         {index === item.stack.length - 1 ? "" : " / "}
-                      </div>
+                      </Text>
                     ))}
-                  </div>
-                )}
-              </div>
+                  </Text>
+                ):null}
+              </Text>
             ))}
-          </div>
-        )}
-        {context.education.length > 0 && (
-          <div style={styles.head}>
+          </Text>
+        ):null}
+        {context.education.length > 0 ? (
+          <Text style={styles.head}>
             Education <hr />
-          </div>
-        )}
-        {context.education.length > 0 && (
-          <div style={[styles.education, styles.odd]}>
+          </Text>
+        ):null}
+        {context.education.length > 0 ? (
+          <Text style={[styles.education, styles.odd]}>
             {context.education.map((item) => (
-              <div key={item.id} style={styles.flexcol}>
-                <div style={styles.bold}>{item.field}</div>
-                <div style={styles.bold}>{item.univercity}</div>
-                <div style={[styles.flex, styles.theme, styles.thin]}>
-                  {item.from && item.to && (
-                    <div style={styles.flex}>
+              <Text key={item.id} style={styles.flexcol}>
+                <Text style={styles.bold}>{item.field}</Text>
+                <Text style={styles.bold}>{item.univercity}</Text>
+                <Text style={[styles.flex, styles.theme, styles.thin]}>
+                  {item.from && item.to ? (
+                    <Text style={styles.flex}>
                       <Icon path={mdiCalendarRange} size={0.4} />
-                      <div>{item.from}</div>
-                      <div>-</div>
-                      <div>{item.to}</div>
-                    </div>
-                  )}
-                  {item.location && (
-                    <div style={styles.flex}>
+                      <Text>{item.from}</Text>
+                      <Text>-</Text>
+                      <Text>{item.to}</Text>
+                    </Text>
+                  ):null}
+                  {item.location ? (
+                    <Text style={styles.flex}>
                       <Icon path={mdiMapMarkerOutline} size={0.4} />
-                      <div>{item.location}</div>
-                    </div>
-                  )}
-                </div>
-              </div>
+                      <Text>{item.location}</Text>
+                    </Text>
+                  ):null}
+                </Text>
+              </Text>
             ))}
-          </div>
-        )}
-        {context.skills.length > 0 && (
-        <div style={styles.head}>
+          </Text>
+        ):null}
+        {context.skills.length > 0 ? (
+        <Text style={styles.head}>
           Skills
           <hr />
-        </div>
-      )}
-      {context.skills.length > 0 && (
-        <div style={[styles.skillpreview,styles.odd]}>
+        </Text>
+      ):null}
+      {context.skills.length > 0 ? (
+        <Text style={[styles.skillpreview,styles.odd]}>
           {context.skills.map((item) => (
-            item.name&&
-            <div key={item.id}>{item.name}</div>
+            item.name?
+            <Text key={item.id}>{item.name}</Text>:null
           ))}
-        </div>
-      )}
+        </Text>
+      ):null}
       </Page>
     </Document>
   );
