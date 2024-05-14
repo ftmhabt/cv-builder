@@ -12,37 +12,27 @@ const styles = StyleSheet.create({
     color: "#7e8724",
   },
   paper: {
-    backgroundColor: "white",
-    width: 450,
-    minHeight: 570,
-    margin: 20,
-    padding: 10,
-    fontSize: 15,
-    fontWeight: "bold",
-    display: "flex",
+    margin: 30,
+    fontSize: 10,
     flexDirection: "column",
     gap: 5,
   },
   personal: {
-    display: "flex",
     flexDirection: "column",
     alignItems: "center",
     gap: 5,
   },
-
-  odd: {
-    paddingLeft: 10,
-    color: "black",
-    fontWeight: "lighter",
-
-    display: "flex",
-    flexDirection: "column",
-    gap: 5,
+  wrap: {
+    width: 500,
   },
-
+  line: {
+    backgroundColor: "#707070",
+    Width: 400,
+    height: 1,
+  },
   name: {
-    fontSize: 15,
-    display: "flex",
+    fontSize: 30,
+    flexDirection: "row",
     textAlign: "center",
   },
 
@@ -51,15 +41,23 @@ const styles = StyleSheet.create({
   },
 
   info: {
-    display: "flex",
+    flexDirection: "row",
     gap: 10,
   },
   flex: {
-    display: "flex",
+    flexDirection: "row",
     gap: 10,
     alignItems: "center",
   },
 
+  odd: {
+    paddingLeft: 10,
+    color: "black",
+    fontWeight: "lighter",
+
+    flexDirection: "column",
+    gap: 5,
+  },
   bold: {
     color: "black",
     fontSize: 15,
@@ -74,10 +72,10 @@ const styles = StyleSheet.create({
     fontWeight: "lighter",
   },
   head: {
-    display: "flex",
+    flexDirection: "row",
     gap: 10,
     alignItems: "center",
-    fontSize: "x-small",
+    fontSize: 10,
     color: "gray",
   },
 
@@ -92,12 +90,10 @@ const styles = StyleSheet.create({
   },
 
   flexcol: {
-    display: "flex",
     flexDirection: "column",
   },
 
   skillpreview: {
-    display: "flex",
     flexDirection: "row",
     flexWrap: "wrap",
     gap: 10,
@@ -110,15 +106,16 @@ const styles = StyleSheet.create({
   //   }
 });
 
-export const MyDocument = ({context}) => {
-    let [first, last] = context.name.split(" ");
+export const MyDocument = ({ context }) => {
+  let [first, last] = context.name.split(" ");
+
   return (
     <Document>
-      <Page size="A4" style={styles.page}>
-        <View style={styles.personal}>
+      <Page size="A4" style={styles.paper}>
+        <View style={[styles.personal, styles.wrap]}>
           <View style={styles.name}>
-            <Text style={styles.first}>hello</Text>
-            <Text style={styles.last}>mmmm</Text>
+            <Text>{first}</Text>
+            <Text style={[styles.last, styles.theme]}>{last}</Text>
           </View>
           <View style={styles.info}>
             {context.email && <Text>Email:</Text>}
@@ -127,22 +124,27 @@ export const MyDocument = ({context}) => {
             <Text style={styles.theme}>{context.linkedin}</Text>
           </View>
         </View>
-        {context.about ? (
-          <Text style={styles.head}>
-            Profile <hr />
-          </Text>
-        ):null}
-        <Text style={[styles.about, styles.odd]}>{context.about}</Text>
+
+        {context.about && (
+          <View style={styles.flex}>
+            <Text style={styles.head}>Profile</Text>
+            <View style={styles.line}></View>
+          </View>
+        )}
+
+        <View style={styles.wrap}>
+          <Text style={[styles.about, styles.odd]}>{context.about}</Text>
+        </View>
         {context.exprience.length > 0 ? (
           <Text style={styles.head}>
             Work Exprience
             <hr />
           </Text>
-        ):null}
-        {context.exprience.length > 0 ? (
-          <Text style={styles.odd}>
+        ) : null}
+        {context.exprience.length > 0 && (
+          <View style={styles.odd}>
             {context.exprience.map((item) => (
-              <Text key={item.id} style={styles.flexcol}>
+              <View key={item.id} style={styles.flexcol}>
                 <Text style={styles.bold}>{item.role}</Text>
                 <Text style={styles.bold}>{item.company}</Text>
                 <Text style={[styles.theme, styles.flex, styles.thin]}>
@@ -153,15 +155,15 @@ export const MyDocument = ({context}) => {
                       <Text>-</Text>
                       <Text>{item.to}</Text>
                     </Text>
-                  ):null}
+                  ) : null}
                   {item.location ? (
                     <Text style={styles.flex}>
                       <Icon path={mdiMapMarkerOutline} size={0.4} />
                       <Text>{item.location}</Text>
                     </Text>
-                  ):null}
+                  ) : null}
                 </Text>
-                <Text>{item.details}</Text>
+                <Text style={styles.wrap}>{item.details}</Text>
                 {item.stack.length > 0 ? (
                   <Text style={[styles.flex, styles.stack]}>
                     Stack:
@@ -172,21 +174,18 @@ export const MyDocument = ({context}) => {
                       </Text>
                     ))}
                   </Text>
-                ):null}
-              </Text>
+                ) : null}
+              </View>
             ))}
-          </Text>
-        ):null}
+          </View>
+        )}
+        {context.projects.length > 0 && (
+          <Text style={styles.head}>Projects</Text>
+        )}
         {context.projects.length > 0 ? (
-          <Text style={styles.head}>
-            Projects
-            <hr />
-          </Text>
-        ):null}
-        {context.projects.length > 0 ? (
-          <Text style={styles.odd}>
+          <View style={styles.odd}>
             {context.projects.map((item) => (
-              <Text key={item.id} style={styles.flexcol}>
+              <View key={item.id} style={styles.flexcol}>
                 <Text style={styles.bold}>{item.name}</Text>
                 <Text style={[styles.flex, styles.theme]}>
                   {item.demo ? (
@@ -196,7 +195,7 @@ export const MyDocument = ({context}) => {
                         demo
                       </Text>
                     </Text>
-                  ):null}
+                  ) : null}
                   {item.github && (
                     <Text style={styles.flex}>
                       <Icon path={mdiXml} size={0.4} />
@@ -206,7 +205,7 @@ export const MyDocument = ({context}) => {
                     </Text>
                   )}
                 </Text>
-                <Text>{item.details}</Text>
+                <Text style={styles.wrap}>{item.details}</Text>
                 {item.stack.length > 0 ? (
                   <Text style={[styles.flex, styles.theme]}>
                     Stack:
@@ -217,20 +216,20 @@ export const MyDocument = ({context}) => {
                       </Text>
                     ))}
                   </Text>
-                ):null}
-              </Text>
+                ) : null}
+              </View>
             ))}
-          </Text>
-        ):null}
+          </View>
+        ) : null}
         {context.education.length > 0 ? (
           <Text style={styles.head}>
             Education <hr />
           </Text>
-        ):null}
+        ) : null}
         {context.education.length > 0 ? (
-          <Text style={[styles.education, styles.odd]}>
+          <View style={[styles.education, styles.odd]}>
             {context.education.map((item) => (
-              <Text key={item.id} style={styles.flexcol}>
+              <View key={item.id} style={styles.flexcol}>
                 <Text style={styles.bold}>{item.field}</Text>
                 <Text style={styles.bold}>{item.univercity}</Text>
                 <Text style={[styles.flex, styles.theme, styles.thin]}>
@@ -241,32 +240,31 @@ export const MyDocument = ({context}) => {
                       <Text>-</Text>
                       <Text>{item.to}</Text>
                     </Text>
-                  ):null}
+                  ) : null}
                   {item.location ? (
                     <Text style={styles.flex}>
                       <Icon path={mdiMapMarkerOutline} size={0.4} />
                       <Text>{item.location}</Text>
                     </Text>
-                  ):null}
+                  ) : null}
                 </Text>
-              </Text>
+              </View>
             ))}
-          </Text>
-        ):null}
+          </View>
+        ) : null}
         {context.skills.length > 0 ? (
-        <Text style={styles.head}>
-          Skills
-          <hr />
-        </Text>
-      ):null}
-      {context.skills.length > 0 ? (
-        <Text style={[styles.skillpreview,styles.odd]}>
-          {context.skills.map((item) => (
-            item.name?
-            <Text key={item.id}>{item.name}</Text>:null
-          ))}
-        </Text>
-      ):null}
+          <Text style={styles.head}>
+            Skills
+            <hr />
+          </Text>
+        ) : null}
+        {context.skills.length > 0 ? (
+          <Text style={[styles.skillpreview, styles.odd]}>
+            {context.skills.map((item) =>
+              item.name ? <Text key={item.id}>{item.name}</Text> : null
+            )}
+          </Text>
+        ) : null}
       </Page>
     </Document>
   );
