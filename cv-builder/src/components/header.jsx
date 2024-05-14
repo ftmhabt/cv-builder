@@ -16,7 +16,6 @@ export default function Header() {
         fileName={"cv.pdf"}
         className="downloadBtn"
       >download</PDFDownloadLink>
-      <button className="shareBtn">share</button>
     </header>
   );
 }
