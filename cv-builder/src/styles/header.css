@@ -11,18 +11,11 @@ header .logo {
   margin-right: auto;
 }
 
-header button{
-    padding: .5rem 1rem;
-    border-radius: .25rem;
-}
-
 header .downloadBtn{
     background-color: white;
     border: 1px solid black;
-}
-
-header .shareBtn{
-    background-color: black;
-    color: white;
-    border: 0;
+    padding: .5rem 1rem;
+    border-radius: .25rem;
+    font-size: small;
+    color: black;
 }
