@@ -6,7 +6,15 @@ import {
   StyleSheet,
   Svg,
   Path,
+  Font,
 } from "@react-pdf/renderer";
+import source1 from '../assets/RedditSans-Regular.ttf'
+import source2 from '../assets/RedditSans-Bold.ttf'
+
+Font.register({ family: 'Reddit Sans', fonts: [
+  { src: source1 }, 
+  { src: source2, fontWeight: 'bold' },
+ ]});
 
 const styles = StyleSheet.create({
   theme: {
@@ -18,6 +26,7 @@ const styles = StyleSheet.create({
     fontSize: 10,
     flexDirection: "column",
     gap: 10,
+    fontFamily: "Reddit Sans",
   },
 
   personal: {
@@ -66,6 +75,7 @@ const styles = StyleSheet.create({
   },
 
   info: {
+    fontSize:10,
     flexDirection: "row",
     gap: 10,
   },
@@ -79,9 +89,8 @@ const styles = StyleSheet.create({
   odd: {
     paddingLeft: 20,
     color: "black",
-    fontWeight: "lighter",
     flexDirection: "column",
-    gap: 5,
+    gap: 10,
   },
 
   bold: {
@@ -94,16 +103,13 @@ const styles = StyleSheet.create({
     marginTop: 10,
   },
 
-  thin: {
-    fontWeight: "lighter",
-  },
-
   head: {
     flexDirection: "row",
     gap: 10,
     alignItems: "center",
-    fontSize: 13,
+    fontSize: 11,
     color: "gray",
+    fontWeight:'bold',
   },
 
   flexcol: {
@@ -190,11 +196,11 @@ export const MyDocument = ({ context }) => {
     <Document>
       <Page size="A4" style={styles.paper}>
         <View style={[styles.personal, styles.wrap]}>
-          <View style={styles.name}>
+          <View style={[styles.bold,styles.name]}>
             <Text>{first}</Text>
             <Text style={[styles.last, styles.theme]}>{last}</Text>
           </View>
-          <View style={styles.info}>
+          <View style={[styles.bold,styles.info]}>
             {context.email && <Text>Email:</Text>}
             <Text style={styles.theme}>{context.email}</Text>
             {context.linkedin && <Text>LinkedIn:</Text>}
@@ -223,7 +229,7 @@ export const MyDocument = ({ context }) => {
               <View key={item.id} style={styles.flexcol}>
                 <Text style={styles.bold}>{item.role}</Text>
                 <Text style={styles.bold}>{item.company}</Text>
-                <View style={[styles.theme, styles.flex, styles.thin]}>
+                <View style={[styles.theme, styles.flex]}>
                   {item.from && item.to && (
                     <View style={styles.flex}>
                       <Calender />
@@ -278,7 +284,7 @@ export const MyDocument = ({ context }) => {
                   )}
                   {item.github && (
                     <View style={styles.flex}>
-                      <Code/>
+                      <Code />
                       <Text href={item.github} target="_blank">
                         github
                       </Text>
@@ -313,8 +319,8 @@ export const MyDocument = ({ context }) => {
             {context.education.map((item) => (
               <View key={item.id} style={styles.flexcol}>
                 <Text style={styles.bold}>{item.field}</Text>
-                <Text style={styles.bold}>{item.univercity}</Text>
-                <View style={[styles.flex, styles.theme, styles.thin]}>
+                <Text>{item.univercity}</Text>
+                <View style={[styles.flex, styles.theme]}>
                   {item.from && item.to && (
                     <View style={styles.flex}>
                       <Calender />
