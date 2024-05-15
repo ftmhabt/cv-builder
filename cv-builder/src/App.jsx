@@ -4,7 +4,7 @@ import cvContext from "./context/general-context";
 import { useState } from "react";
 
 function App() {
-  const [name, setName] = useState("fatemeh abtahi");
+  const [name, setName] = useState("Fatemeh Abtahi");
   const [email, setEmail] = useState("ftmh.a78@gmail.com");
   const [linkedin, setLinkedin] = useState(
     "https://www.linkedin.com/in/fatemeh-abtahi/"
