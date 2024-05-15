@@ -72,3 +72,16 @@ label {
 form > hr{
   margin: 1rem 0;
 }
+
+@media screen and (max-width: 600px) {
+  #root {
+    grid-template-columns:  1fr;
+  }
+  .cv{
+    display: none;
+  }
+
+  .forms{
+    width: 100vw;
+  }
+}
