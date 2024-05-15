@@ -11,25 +11,49 @@ const styles = StyleSheet.create({
   theme: {
     color: "#7e8724",
   },
+
   paper: {
-    margin: 30,
+    margin: 45,
     fontSize: 10,
     flexDirection: "column",
-    gap: 5,
+    gap: 10,
   },
+
   personal: {
     flexDirection: "column",
     alignItems: "center",
     gap: 5,
   },
+
   wrap: {
-    width: 500,
+    width: 475,
   },
+
   line: {
-    backgroundColor: "#707070",
-    Width: 400,
-    height: 1,
+    backgroundColor: "#d4d4d4",
+    height: "1px",
   },
+
+  line1: {
+    flex: 0.826,
+  },
+
+  line2: {
+    flex: 0.806,
+  },
+
+  line3: {
+    flex: 0.822,
+  },
+
+  line4: {
+    flex: 0.818,
+  },
+
+  line5: {
+    flex: 0.827,
+  },
+
   name: {
     fontSize: 30,
     flexDirection: "row",
@@ -44,6 +68,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     gap: 10,
   },
+
   flex: {
     flexDirection: "row",
     gap: 10,
@@ -51,16 +76,16 @@ const styles = StyleSheet.create({
   },
 
   odd: {
-    paddingLeft: 10,
+    paddingLeft: 20,
     color: "black",
     fontWeight: "lighter",
-
     flexDirection: "column",
     gap: 5,
   },
+
   bold: {
     color: "black",
-    fontSize: 15,
+    fontSize: 12,
     fontWeight: "bold",
   },
 
@@ -71,22 +96,13 @@ const styles = StyleSheet.create({
   thin: {
     fontWeight: "lighter",
   },
+
   head: {
     flexDirection: "row",
     gap: 10,
     alignItems: "center",
-    fontSize: 10,
+    fontSize: 13,
     color: "gray",
-  },
-
-  //   ,head > * {
-  //     flex: 1;
-  //   }
-
-  hr: {
-    borderColor: "mdiGantryCrane",
-    borderTop: 1,
-    borderLeft: 0,
   },
 
   flexcol: {
@@ -97,13 +113,17 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     flexWrap: "wrap",
     gap: 10,
+    paddingLeft: 20,
   },
 
-  //   ,skill-preview>*{
-  //     border: 1px solid var(--theme-color);
-  //     border-radius: .5rem;
-  //     padding: .25rem .75rem;
-  //   }
+  skill: {
+    border: 1,
+    borderColor: "#7e8724",
+    borderRadius: 10,
+    textAlign: "center",
+    paddingVertical: 6,
+    paddingHorizontal: 18,
+  },
 });
 
 export const MyDocument = ({ context }) => {
@@ -128,7 +148,7 @@ export const MyDocument = ({ context }) => {
         {context.about && (
           <View style={styles.flex}>
             <Text style={styles.head}>Profile</Text>
-            <View style={styles.line}></View>
+            <View style={[styles.line, styles.line1]}></View>
           </View>
         )}
 
@@ -136,10 +156,10 @@ export const MyDocument = ({ context }) => {
           <Text style={[styles.about, styles.odd]}>{context.about}</Text>
         </View>
         {context.exprience.length > 0 ? (
-          <Text style={styles.head}>
-            Work Exprience
-            <hr />
-          </Text>
+          <View style={styles.flex}>
+            <Text style={styles.head}>Work Exprience </Text>
+            <View style={[styles.line, styles.line2]}></View>
+          </View>
         ) : null}
         {context.exprience.length > 0 && (
           <View style={styles.odd}>
@@ -180,7 +200,10 @@ export const MyDocument = ({ context }) => {
           </View>
         )}
         {context.projects.length > 0 && (
-          <Text style={styles.head}>Projects</Text>
+          <View style={styles.flex}>
+            <Text style={styles.head}>Projects </Text>
+            <View style={[styles.line, styles.line3]}></View>
+          </View>
         )}
         {context.projects.length > 0 ? (
           <View style={styles.odd}>
@@ -207,7 +230,7 @@ export const MyDocument = ({ context }) => {
                 </Text>
                 <Text style={styles.wrap}>{item.details}</Text>
                 {item.stack.length > 0 ? (
-                  <Text style={[styles.flex, styles.theme]}>
+                  <Text style={[styles.flex, styles.stack]}>
                     Stack:
                     {item.stack.map((stack, index) => (
                       <Text key={index}>
@@ -222,9 +245,10 @@ export const MyDocument = ({ context }) => {
           </View>
         ) : null}
         {context.education.length > 0 ? (
-          <Text style={styles.head}>
-            Education <hr />
-          </Text>
+          <View style={styles.flex}>
+            <Text style={styles.head}>Education </Text>
+            <View style={[styles.line, styles.line4]}></View>
+          </View>
         ) : null}
         {context.education.length > 0 ? (
           <View style={[styles.education, styles.odd]}>
@@ -253,17 +277,21 @@ export const MyDocument = ({ context }) => {
           </View>
         ) : null}
         {context.skills.length > 0 ? (
-          <Text style={styles.head}>
-            Skills
-            <hr />
-          </Text>
+          <View style={styles.flex}>
+            <Text style={styles.head}>Skills </Text>
+            <View style={[styles.line, styles.line5]}></View>
+          </View>
         ) : null}
         {context.skills.length > 0 ? (
-          <Text style={[styles.skillpreview, styles.odd]}>
+          <View style={styles.skillpreview}>
             {context.skills.map((item) =>
-              item.name ? <Text key={item.id}>{item.name}</Text> : null
+              item.name ? (
+                <Text key={item.id} style={styles.skill}>
+                  {item.name}
+                </Text>
+              ) : null
             )}
-          </Text>
+          </View>
         ) : null}
       </Page>
     </Document>
