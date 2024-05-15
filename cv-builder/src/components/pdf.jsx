@@ -7,13 +7,6 @@ import {
   Svg,
   Path,
 } from "@react-pdf/renderer";
-import Icon from "@mdi/react";
-import {
-  mdiCalendarRange,
-  mdiMapMarkerOutline,
-  mdiEyeOutline,
-  mdiXml,
-} from "@mdi/js";
 
 const styles = StyleSheet.create({
   theme: {
@@ -135,8 +128,58 @@ const styles = StyleSheet.create({
 });
 
 const Calender = () => (
-  <Svg width="10" height="10" viewBox="0 0 24 24">
-    <Path d="M9,10H7V12H9V10M13,10H11V12H13V10M17,10H15V12H17V10M19,3H18V1H16V3H8V1H6V3H5C3.89,3 3,3.9 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5A2,2 0 0,0 19,3M19,19H5V8H19V19Z" />
+  <Svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 24 24"
+    width={10}
+    height={10}
+  >
+    <Path
+      fill="#7e8724"
+      d="M9,10H7V12H9V10M13,10H11V12H13V10M17,10H15V12H17V10M19,3H18V1H16V3H8V1H6V3H5C3.89,3 3,3.9 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5A2,2 0 0,0 19,3M19,19H5V8H19V19Z"
+    />
+  </Svg>
+);
+
+const Location = () => (
+  <Svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 24 24"
+    width={10}
+    height={10}
+  >
+    <Path
+      fill="#7e8724"
+      d="M12,6.5A2.5,2.5 0 0,1 14.5,9A2.5,2.5 0 0,1 12,11.5A2.5,2.5 0 0,1 9.5,9A2.5,2.5 0 0,1 12,6.5M12,2A7,7 0 0,1 19,9C19,14.25 12,22 12,22C12,22 5,14.25 5,9A7,7 0 0,1 12,2M12,4A5,5 0 0,0 7,9C7,10 7,12 12,18.71C17,12 17,10 17,9A5,5 0 0,0 12,4Z"
+    />
+  </Svg>
+);
+
+const Demo = () => (
+  <Svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 24 24"
+    width={10}
+    height={10}
+  >
+    <Path
+      fill="#7e8724"
+      d="M12,9A3,3 0 0,1 15,12A3,3 0 0,1 12,15A3,3 0 0,1 9,12A3,3 0 0,1 12,9M12,4.5C17,4.5 21.27,7.61 23,12C21.27,16.39 17,19.5 12,19.5C7,19.5 2.73,16.39 1,12C2.73,7.61 7,4.5 12,4.5M3.18,12C4.83,15.36 8.24,17.5 12,17.5C15.76,17.5 19.17,15.36 20.82,12C19.17,8.64 15.76,6.5 12,6.5C8.24,6.5 4.83,8.64 3.18,12Z"
+    />
+  </Svg>
+);
+
+const Code = () => (
+  <Svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 24 24"
+    width={10}
+    height={10}
+  >
+    <Path
+      fill="#7e8724"
+      d="M12.89,3L14.85,3.4L11.11,21L9.15,20.6L12.89,3M19.59,12L16,8.41V5.58L22.42,12L16,18.41V15.58L19.59,12M1.58,12L8,5.58V8.41L4.41,12L8,15.58V18.41L1.58,12Z"
+    />
   </Svg>
 );
 
@@ -191,7 +234,7 @@ export const MyDocument = ({ context }) => {
                   )}
                   {item.location && (
                     <View style={styles.flex}>
-                      <Icon path={mdiMapMarkerOutline} size={0.4} />
+                      <Location />
                       <Text>{item.location}</Text>
                     </View>
                   )}
@@ -227,7 +270,7 @@ export const MyDocument = ({ context }) => {
                 <View style={[styles.flex, styles.theme]}>
                   {item.demo && (
                     <View style={styles.flex}>
-                      <Icon path={mdiEyeOutline} size={0.4} />
+                      <Demo />
                       <Text href={item.demo} target="_blank">
                         demo
                       </Text>
@@ -235,7 +278,7 @@ export const MyDocument = ({ context }) => {
                   )}
                   {item.github && (
                     <View style={styles.flex}>
-                      <Icon path={mdiXml} size={0.4} />
+                      <Code/>
                       <Text href={item.github} target="_blank">
                         github
                       </Text>
@@ -282,7 +325,7 @@ export const MyDocument = ({ context }) => {
                   )}
                   {item.location && (
                     <View style={styles.flex}>
-                      <Icon path={mdiMapMarkerOutline} size={0.4} />
+                      <Location />
                       <Text>{item.location}</Text>
                     </View>
                   )}
