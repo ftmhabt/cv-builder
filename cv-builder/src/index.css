@@ -1,7 +1,21 @@
+@font-face {
+  font-family: "Reddit Sans";
+  src: url('./assets/RedditSans-Regular.ttf');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Reddit Sans";
+  src: url('./assets/RedditSans-Bold.ttf');
+  font-weight: bold;
+  font-style: normal;
+}
+
 :root {
   --border: 2px solid #d4d4d4;
   --gray: #d4d4d4;
-  font-family: sans-serif;
+  font-family: 'Reddit Sans', sans-serif;
 }
 
 #root {
