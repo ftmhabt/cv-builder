@@ -17,7 +17,7 @@ export default function PreviewEducation() {
           {context.education.map((item) => (
             <div key={item.id} className="flex-col">
               <div className="bold">{item.field}</div>
-              <div className="bold">{item.univercity}</div>
+              <div>{item.univercity}</div>
               <div className="theme flex thin">
                 {item.from && item.to && (
                   <div className="flex">
