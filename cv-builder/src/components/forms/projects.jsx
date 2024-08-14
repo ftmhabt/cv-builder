@@ -1,12 +1,12 @@
 import { useContext } from "react";
-import cvContext from "../../context/general-context";
+import { cvContext } from "../../context/cv-context";
 import DeleteButton from "../delete-button";
 
 export default function Projects() {
   const context = useContext(cvContext);
 
   const handleChange = (e, id) => {
-    const newProjects = context.projects.map((data) =>
+    const newProjects = context.cvData.projects.map((data) =>
       data.id === id ? { ...data, [e.target.name]: e.target.value } : data
     );
     context.setProjects(newProjects);
@@ -14,13 +14,13 @@ export default function Projects() {
 
   const handleStacks = (e, id) => {
     const stackArray = e.target.value.split(',');
-    const newprojects = context.projects.map((data) =>
+    const newprojects = context.cvData.projects.map((data) =>
       data.id === id ? { ...data, [e.target.name]: stackArray } : data
     );
     context.setProjects(newprojects);
   };
 
-  return context.projects.map((data, index) => (
+  return context.cvData.projects.map((data, index) => (
     <form key={index}>
       <label htmlFor="name">name</label>
       <input

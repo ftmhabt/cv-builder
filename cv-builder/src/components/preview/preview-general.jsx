@@ -1,9 +1,9 @@
 import { useContext } from "react";
-import cvContext from "../../context/general-context";
+import { cvContext } from "../../context/cv-context";
 
 export default function PreviewGeneral() {
-  const context = useContext(cvContext);
-  let [first, last] = context.name.split(" ");
+  const {cvData} = useContext(cvContext);
+  let [first, last] = cvData.name.split(" ");
   return (
     <>
       <div className="personal">
@@ -12,18 +12,18 @@ export default function PreviewGeneral() {
           <div className="last theme">{last}</div>
         </div>
         <div className="info">
-          {context.email && <div>Email:</div>}
-          <div className="theme">{context.email}</div>
-          {context.linkedin && <div>LinkedIn:</div>}
-          <div className="theme">{context.linkedin}</div>
+          {cvData.email && <div>Email:</div>}
+          <div className="theme">{cvData.email}</div>
+          {cvData.linkedin && <div>LinkedIn:</div>}
+          <div className="theme">{cvData.linkedin}</div>
         </div>
       </div>
-      {context.about && (
+      {cvData.about && (
         <div className="head">
           Profile <hr />
         </div>
       )}
-      <div className="about odd">{context.about}</div>
+      <div className="about odd">{cvData.about}</div>
     </>
   );
 }

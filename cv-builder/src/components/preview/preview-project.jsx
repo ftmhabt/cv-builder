@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import cvContext from "../../context/general-context";
+import { cvContext } from "../../context/cv-context";
 import Icon from "@mdi/react";
 import { mdiEyeOutline, mdiXml } from "@mdi/js";
 
@@ -7,15 +7,15 @@ export default function PreviewProject() {
   const context = useContext(cvContext);
   return (
     <>
-      {context.projects.length > 0 && (
+      {context.cvData.projects.length > 0 && (
         <div className="head">
           Projects
           <hr />
         </div>
       )}
-      {context.projects.length > 0 && (
+      {context.cvData.projects.length > 0 && (
         <div className="odd">
-          {context.projects.map((item) => (
+          {context.cvData.projects.map((item) => (
             <div key={item.id} className="flex-col">
               <div className="bold">{item.name}</div>
               <div className="theme flex">

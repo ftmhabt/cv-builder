@@ -4,7 +4,7 @@ import rightIcon from "./../assets/right.svg";
 import General from "./forms/general";
 import Educational from "./forms/educational";
 import Professional from "./forms/professional";
-import cvContext from "../context/general-context";
+import { cvContext } from "../context/cv-context";
 import { v4 as uuid } from "uuid";
 import Projects from "./forms/projects";
 import Skills from "./forms/skills";
@@ -15,7 +15,7 @@ export default function Left() {
 
   const AddEducation = () => {
     const newArray = [
-      ...context.education,
+      ...context.cvData.education,
       {
         id: uuid(),
         field: "",
@@ -30,7 +30,7 @@ export default function Left() {
 
   const AddExprience = () => {
     const newArray = [
-      ...context.exprience,
+      ...context.cvData.exprience,
       {
         id: uuid(),
         role: "",
@@ -47,7 +47,7 @@ export default function Left() {
 
   const AddProject = () => {
     const newArray = [
-      ...context.projects,
+      ...context.cvData.projects,
       {
         id: uuid(),
         name: "",
@@ -61,7 +61,7 @@ export default function Left() {
   };
 
   const AddSkills = () => {
-    const newArray = [...context.skills, { id: uuid(), name: "" }];
+    const newArray = [...context.cvData.skills, { id: uuid(), name: "" }];
     context.setSkills(newArray);
   };
 

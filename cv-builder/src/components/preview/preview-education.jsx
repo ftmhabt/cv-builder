@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import cvContext from "../../context/general-context";
+import { cvContext } from "../../context/cv-context";
 import Icon from "@mdi/react";
 import { mdiCalendarRange, mdiMapMarkerOutline } from "@mdi/js";
 
@@ -7,14 +7,14 @@ export default function PreviewEducation() {
   const context = useContext(cvContext);
   return (
     <>
-      {context.education.length > 0 && (
+      {context.cvData.education.length > 0 && (
         <div className="head">
           Education <hr />
         </div>
       )}
-      {context.education.length > 0 && (
+      {context.cvData.education.length > 0 && (
         <div className="education odd">
-          {context.education.map((item) => (
+          {context.cvData.education.map((item) => (
             <div key={item.id} className="flex-col">
               <div className="bold">{item.field}</div>
               <div>{item.univercity}</div>

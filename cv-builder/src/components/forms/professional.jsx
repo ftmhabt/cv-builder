@@ -1,12 +1,12 @@
 import { useContext } from "react";
-import cvContext from "../../context/general-context";
+import { cvContext } from "../../context/cv-context";
 import DeleteButton from "../delete-button";
 
 export default function Professional() {
   const context = useContext(cvContext);
 
   const handleChange = (e, id) => {
-    const newExprience = context.exprience.map((data) =>
+    const newExprience = context.cvData.exprience.map((data) =>
       data.id === id ? { ...data, [e.target.name]: e.target.value } : data
     );
     context.setExprience(newExprience);
@@ -14,13 +14,13 @@ export default function Professional() {
 
   const handleStacks = (e, id) => {
     const stackArray = e.target.value.split(',');
-    const newExprience = context.exprience.map((data) =>
+    const newExprience = context.cvData.exprience.map((data) =>
       data.id === id ? { ...data, [e.target.name]: stackArray } : data
     );
     context.setExprience(newExprience);
   };
 
-  return context.exprience.map((data, index) => (
+  return context.cvData.exprience.map((data, index) => (
     <form key={index}>
       <label htmlFor="role">Role</label>
       <input

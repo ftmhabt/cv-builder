@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import cvContext from "../context/general-context";
+import { cvContext } from "../context/cv-context";
 
 export default function DeleteButton({ arrayName, id, type = "form" }) {
   const context = useContext(cvContext);

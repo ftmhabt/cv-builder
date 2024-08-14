@@ -1,18 +1,18 @@
 import { useContext } from "react";
-import cvContext from "../../context/general-context";
+import { cvContext } from "../../context/cv-context";
 import DeleteButton from "../delete-button";
 
 export default function Skills() {
   const context = useContext(cvContext);
 
   const handleChange = (e, id) => {
-    const newSkills = context.skills.map((data) =>
+    const newSkills = context.cvData.skills.map((data) =>
       data.id === id ? { ...data, [e.target.name]: e.target.value } : data
     );
     context.setSkills(newSkills);
   };
 
-  return context.skills.map((data, index) => (
+  return context.cvData.skills.map((data, index) => (
     <form key={index} className="skills">
       <input
         type="text"
