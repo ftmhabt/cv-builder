@@ -1,4 +1,4 @@
-import { createContext, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 
 export const cvContext = createContext({
   cvData: {
@@ -72,7 +72,19 @@ export default function CVProvider({ children }) {
   ]);
 
   
-  
+  useEffect(() => {
+    const contextData = JSON.parse(localStorage.getItem("cv-data"));
+    if (contextData) {
+      setName(contextData.name);
+      setEmail(contextData.email);
+      setLinkedin(contextData.linkedin);
+      setAbout(contextData.about);
+      setExprience(contextData.exprience);
+      setEducation(contextData.education);
+      setSkills(contextData.skills);
+      setProjects(contextData.projects);
+    }
+  }, []);
 
   return (
     <cvContext.Provider

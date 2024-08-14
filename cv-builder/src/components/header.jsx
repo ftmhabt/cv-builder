@@ -7,7 +7,10 @@ import { cvContext } from "../context/cv-context";
 export default function Header() {
   const context = useContext(cvContext);
 
-
+  const handleSave = () => {
+    localStorage.setItem("cv-data", JSON.stringify(context.cvData));
+    alert('saved');
+  };
   return (
     <header>
       <div className="logo">cv builder</div>
@@ -18,6 +21,7 @@ export default function Header() {
       >
         download
       </PDFDownloadLink>
+      <button className="downloadBtn" onClick={handleSave}>save</button>
     </header>
   );
 }
